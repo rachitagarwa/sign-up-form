@@ -1,0 +1,81 @@
+package sycs18;
+
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+
+
+class UserFrame extends JFrame implements ActionListener
+{
+    
+    JTextField uNameText;
+    JPasswordField uPassText;
+    JButton btn;
+    
+    UserFrame()
+    {
+        setTitle("Signup Form");
+        //Container c = getContentPane();
+        //c.setLayout(null);
+        JPanel c = new JPanel();
+        this.add(c);
+        //c.setLayout(new BoxLayout(c,BoxLayout.Y_AXIS));
+        
+        JLabel uName = new JLabel("Enter the User Name");
+        //uName.setLocation(50, 50);
+        //uName.setSize(100, 20);
+        uName.setFont(new Font("Aerial", Font.PLAIN,20));
+        uNameText = new JTextField(30);
+        //uNameText.setE
+        //uNameText.setLocation(80, 50);
+        c.add(uName);
+        c.add(uNameText);
+        
+        JLabel uPass = new JLabel("Enter the Password");
+        //uPass.setLocation(150, 160);
+        //uPass.setSize(100, 20);
+        uPass.setFont(new Font("Aerial", Font.PLAIN,20));
+        uPassText = new JPasswordField(30);
+        uPassText.setEchoChar('*');
+        //uPassText.setLocation(80, 160);
+        c.add(uPass);
+        c.add(uPassText);
+        btn = new JButton("Submit");
+        c.add(btn);
+        btn.addActionListener(this);       
+        setBounds(20, 20, 1550, 1650);
+        setVisible(true);
+        setResizable(true);       
+    }
+    
+    @Override
+   public void actionPerformed(ActionEvent e)
+{
+    System.out.println("Action performed by " + e.getSource());
+    
+    if (e.getSource() == btn)
+    {
+        System.out.println("The user inputted username:" + uNameText.getText()  +
+                ", password:" + uPassText.getText());
+    }
+}
+    
+}
+
+
+
+
+public class UserForm {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        //System.out.println("Hello");
+        UserFrame demo = new UserFrame();
+    }
+    
+}
